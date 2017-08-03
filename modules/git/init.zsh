@@ -15,3 +15,8 @@ pmodload 'helper'
 
 # Source module files.
 source "${0:h}/alias.zsh"
+
+#
+# Oh-My-Zsh
+# 
+source "${0:h}/alias-oh-my-zsh.zsh"
