@@ -11,3 +11,84 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# User configuration
+
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+
+# Laravel tinker 
+alias tinker="php artisan tinker"
+
+# JAVA 
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=$JAVA_HOME:$PATH
+
+# Gradle 
+export GRADLE_HOME="/usr/local/opt/gradle/libexec/"
+
+# NPM 
+export PATH="$HOME/.node/bin:$PATH"
+
+# RVM and Ruby 
+export PATH="$HOME/.rvm/bin:$HOME/.rvm/gems/ruby-2.2.0/bin:$PATH" # Add RVM to PATH for scripting
+
+# Go 
+export GOROOT="/usr/local/opt/go/libexec"
+export GOPATH="$HOME/golang/3rdpkg:$GOROOT:$HOME/golang/own"
+export GOBIN="$HOME/golang/own/bin"
+#export GOROOT_BOOTSTRAP="$HOME/golang/go-bootstrap"
+export PATH="$PATH:$GOROOT/bin:$GOBIN"
+
+# Docker 
+# export DOCKER_TLS_VERIFY="1"
+# export DOCKER_HOST="tcp://192.168.99.100:2376"
+# export DOCKER_CERT_PATH="/Users/michael/.docker/machine/machines/default"
+# export DOCKER_MACHINE_NAME="default"
+
+# Android sdk tools 
+export PATH="$PATH:/Users/michael/Library/Android/sdk/platform-tools"
+
+# Perl 
+PATH="/Users/michael/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/michael/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/michael/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/michael/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/michael/perl5"; export PERL_MM_OPT;
+
+# Shadowsocks http proxy
+alias pon='export http_proxy=http://localhost:1087;export https_proxy=$http_proxy'
+alias poff='unset http_proxy;unset https_proxy'
+
+# Enable zsh auto suggestions
+source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^l' autosuggest-accept
+
+# yiran vpn route
+alias yon='sudo route add -net 10.0.0.0/8 -interface ppp0;sudo route add -net 192.168.0.0/16 -interface ppp0;sudo route add -net 172.20.0.0/16 -interface ppp0;
+'
+alias yoff='sudo route delete 10.0.0.0;sudo route delete 192.168.0.0;sudo route delete 172.20.0.0;'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
