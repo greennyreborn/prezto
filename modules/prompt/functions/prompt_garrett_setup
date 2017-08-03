@@ -364,6 +364,21 @@ function prompt_garrett_setup {
   # Git verbose data (commit counts, etc.)
   # zstyle ':prezto:module:git:info' verbose 'yes'
 
+  zstyle ':prezto:module:git:info' verbose 'yes'
+  zstyle ':prezto:module:git:info:action' format ' ⁝ %s'
+  zstyle ':prezto:module:git:info:added' format ' ✚'
+  zstyle ':prezto:module:git:info:ahead' format ' ⬆'
+  zstyle ':prezto:module:git:info:behind' format ' ⬇'
+  zstyle ':prezto:module:git:info:branch' format ' %b'
+  zstyle ':prezto:module:git:info:commit' format '➦ %.7c'
+  zstyle ':prezto:module:git:info:deleted' format ' ✖'
+  zstyle ':prezto:module:git:info:dirty' format ' ⁝'
+  zstyle ':prezto:module:git:info:modified' format ' ✱'
+  zstyle ':prezto:module:git:info:position' format '%p'
+  zstyle ':prezto:module:git:info:renamed' format ' ➙'
+  zstyle ':prezto:module:git:info:stashed' format ' S'
+  zstyle ':prezto:module:git:info:unmerged' format ' ═'
+  zstyle ':prezto:module:git:info:untracked' format ' ?'
   # Git prompt info.
   zstyle ':prezto:module:git:info:branch'    format "${cyan} λ${prompt_garrett_color_prompt}:${green}%b"
   zstyle ':prezto:module:git:info:remote'    format ""
@@ -384,7 +399,7 @@ function prompt_garrett_setup {
   zstyle ':prezto:module:git:info:dirty'     format "${prompt_garrett_color_prompt} |"
   zstyle ':prezto:module:git:info:added'     format "${green} ✚"
   zstyle ':prezto:module:git:info:deleted'   format "${red} ✗"
-  zstyle ':prezto:module:git:info:modified'  format "${blue} ✱"
+  zstyle ':prezto:module:git:info:modified'  format " ✱"
   zstyle ':prezto:module:git:info:renamed'   format "${magenta} ➜"
   zstyle ':prezto:module:git:info:unmerged'  format "${yellow} ═"
   zstyle ':prezto:module:git:info:untracked' format "${white} ◼"
@@ -396,6 +411,7 @@ function prompt_garrett_setup {
     'local_status'   "%C%D%a%d%m%r%U%u" \
     'remote_status'  "%B%A%S" \
     'sha'            "%c" \
+
 
   #
   # Report Ruby version.
