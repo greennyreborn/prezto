@@ -60,6 +60,7 @@ export GOROOT="/usr/local/opt/go/libexec"
 export GOPATH="$HOME/golang/3rdpkg:$GOROOT:$HOME/golang/own"
 export GOBIN="$HOME/golang/own/bin"
 #export GOROOT_BOOTSTRAP="$HOME/golang/go-bootstrap"
+export GOROOT_BOOTSTRAP=$GOROOT
 export PATH="$PATH:$GOROOT/bin:$GOBIN"
 
 # Docker 
@@ -90,5 +91,8 @@ bindkey '^l' autosuggest-accept
 alias yon='sudo route add -net 10.0.0.0/8 -interface ppp0;sudo route add -net 192.168.0.0/16 -interface ppp0;sudo route add -net 172.20.0.0/16 -interface ppp0;
 '
 alias yoff='sudo route delete 10.0.0.0;sudo route delete 192.168.0.0;sudo route delete 172.20.0.0;'
+
+# Init jenv
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
