@@ -92,6 +92,10 @@ alias yon='sudo route add -net 10.0.0.0/8 -interface ppp0;sudo route add -net 19
 '
 alias yoff='sudo route delete 10.0.0.0;sudo route delete 192.168.0.0;sudo route delete 172.20.0.0;'
 
+# maven-pdd credentials
+export NEXUS_USER=pdd
+export NEXUS_PASSWORD=pdd@admin
+
 # Init jenv
 if which jenv > /dev/null; then eval "$(jenv init -)"; fi
 
