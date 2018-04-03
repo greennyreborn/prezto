@@ -84,13 +84,15 @@ alias pon='export http_proxy=http://localhost:1087;export https_proxy=$http_prox
 alias poff='unset http_proxy;unset https_proxy'
 
 # Enable zsh auto suggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^l' autosuggest-accept
 
 # yiran vpn route
 alias yon='sudo route add -net 10.0.0.0/8 -interface ppp0;sudo route add -net 192.168.0.0/16 -interface ppp0;sudo route add -net 172.20.0.0/16 -interface ppp0;
 '
 alias yoff='sudo route delete 10.0.0.0;sudo route delete 192.168.0.0;sudo route delete 172.20.0.0;'
+
+# ssh shortcut
+alias s='ssh'
 
 # maven-pdd credentials
 export NEXUS_USER=pdd
