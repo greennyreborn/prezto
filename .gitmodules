@@ -30,4 +30,4 @@
 	url = https://github.com/bhilburn/powerlevel9k.git
 [submodule "modules/prompt/external/pure-michael"]
 	path = modules/prompt/external/pure-michael
-	url = git@github.com:greennyreborn/pure.git
+	url = https://github.com/greennyreborn/pure.git
