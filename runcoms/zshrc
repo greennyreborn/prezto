@@ -39,66 +39,21 @@ export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 # For a full list of active aliases, run `alias`.
 #
 
-# Laravel tinker 
-alias tinker="php artisan tinker"
-
-# JAVA 
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=$JAVA_HOME:$PATH
-
-# Gradle 
-export GRADLE_HOME="/usr/local/opt/gradle/libexec/"
-
-# NPM 
-export PATH="$HOME/.node/bin:$PATH"
-
-# RVM and Ruby 
-export PATH="$HOME/.rvm/bin:$HOME/.rvm/gems/ruby-2.2.0/bin:$PATH" # Add RVM to PATH for scripting
-
-# Go 
-export GOROOT="/usr/local/opt/go/libexec"
-export GOPATH="$HOME/golang/3rdpkg:$GOROOT:$HOME/golang/own"
-export GOBIN="$HOME/golang/own/bin"
-#export GOROOT_BOOTSTRAP="$HOME/golang/go-bootstrap"
-export GOROOT_BOOTSTRAP=$GOROOT
-export PATH="$PATH:$GOROOT/bin:$GOBIN"
-
-# Docker 
-# export DOCKER_TLS_VERIFY="1"
-# export DOCKER_HOST="tcp://192.168.99.100:2376"
-# export DOCKER_CERT_PATH="/Users/michael/.docker/machine/machines/default"
-# export DOCKER_MACHINE_NAME="default"
-
-# Android sdk tools 
-export PATH="$PATH:/Users/michael/Library/Android/sdk/platform-tools"
-
-# Perl 
-PATH="/Users/michael/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/michael/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/michael/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/michael/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/michael/perl5"; export PERL_MM_OPT;
-
-# Shadowsocks http proxy
-alias pon='export http_proxy=http://localhost:1087;export https_proxy=$http_proxy'
-alias poff='unset http_proxy;unset https_proxy'
-
 # Enable zsh auto suggestions
 bindkey '^l' autosuggest-accept
-
-# yiran vpn route
-alias yon='sudo route add -net 10.0.0.0/8 -interface ppp0;sudo route add -net 192.168.0.0/16 -interface ppp0;sudo route add -net 172.20.0.0/16 -interface ppp0;
-'
-alias yoff='sudo route delete 10.0.0.0;sudo route delete 192.168.0.0;sudo route delete 172.20.0.0;'
 
 # ssh shortcut
 alias s='ssh'
 
-# maven-pdd credentials
-export NEXUS_USER=pdd
-export NEXUS_PASSWORD=pdd@admin
+# Locale setting
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_COLLATE=C
+export LC_CTYPE=en_US.UTF-8
 
-# Init jenv
-if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+# Linuxbrew
+export PATH='/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin':"$PATH"
 
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
