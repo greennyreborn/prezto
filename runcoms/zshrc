@@ -1,3 +1,22 @@
+# # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# To make Homebrew’s completions available in zsh,
+# you must insert the Homebrew-managed zsh/site-functions path
+# into your FPATH before initialising zsh’s completion facility.
+# Add the following to your ~/.zshrc
+if type brew &>/dev/null
+then
+  FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+  autoload -Uz compinit
+  compinit
+fi
+
 #
 # Executes commands at the start of an interactive session.
 #
@@ -11,3 +30,122 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
 fi
 
 # Customize to your needs...
+
+# User configuration
+
+# Zplug
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "plugins/git",   from:oh-my-zsh
+zplug "plugins/osx",   from:oh-my-zsh
+zplug "plugins/web-search",   from:oh-my-zsh
+zplug "plugins/aliases",   from:oh-my-zsh
+zplug "junegunn/fzf"
+zplug "Peltoche/lsd"
+zplug "MichaelAquilina/zsh-you-should-use"
+
+zplug load
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Laravel tinker
+# alias tinker="php artisan tinker"
+
+# JAVA
+export JAVA_HOME=$(/usr/libexec/java_home)
+export PATH=$JAVA_HOME:$PATH
+
+# Gradle
+# export GRADLE_HOME="/usr/local/opt/gradle/libexec/"
+
+# NPM
+# export PATH="$HOME/.node/bin:$PATH"
+
+# RVM and Ruby
+# export PATH="$HOME/.rvm/bin:$HOME/.rvm/gems/ruby-2.2.0/bin:$PATH" # Add RVM to PATH for scripting
+
+# Go
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix go)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+# Docker
+# export DOCKER_TLS_VERIFY="1"
+# export DOCKER_HOST="tcp://192.168.99.100:2376"
+# export DOCKER_CERT_PATH="/Users/michael/.docker/machine/machines/default"
+# export DOCKER_MACHINE_NAME="default"
+
+# Android sdk tools
+# export PATH="$PATH:/Users/michael/Library/Android/sdk/platform-tools"
+
+# ClashX http proxy
+alias con='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
+alias coff='unset http_proxy;unset https_proxy;unset all_proxy'
+con ## enable proxy
+
+# Enable zsh auto suggestions
+bindkey '^l' autosuggest-accept
+
+# ssh shortcut
+alias s='ssh'
+
+# tailf shortcut
+alias tailf='tail -f'
+
+# git http proxy
+alias gon='git config --global http.proxy http://127.0.0.1:7890'
+alias goff='git config --global --unset http.proxy'
+
+# git quick rebase master
+alias quickrebase='gco master && gl && gco - && grb master'
+# git ammend commit date to now
+alias gcad='gc --amend --date=now'
+
+# rust settings
+export PATH="$HOME/.cargo/bin:$PATH"
+
+ #Init jenv
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
+
+# fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# homebrew curl
+export HOMEBREW_FORCE_BREWED_CURL=1
+
+# homebrew no update
+alias hbnu='export HOMEBREW_NO_AUTO_UPDATE=1'
+
+# n
+export N_PREFIX=/opt/n
+export PATH="/opt/n/bin:$PATH"
+
+# LunarVim
+export PATH="/Users/michael/.local/bin:$PATH"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
