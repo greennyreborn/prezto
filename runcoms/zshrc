@@ -105,7 +105,11 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 # ClashX http proxy
 alias con='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
 alias coff='unset http_proxy;unset https_proxy;unset all_proxy'
-con ## enable proxy
+
+# surge proxy
+alias son='export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153'
+alias soff='unset http_proxy;unset https_proxy;unset all_proxy'
+son ## enable proxy
 
 # Enable zsh auto suggestions
 bindkey '^l' autosuggest-accept
@@ -117,7 +121,7 @@ alias s='ssh'
 alias tailf='tail -f'
 
 # git http proxy
-alias gon='git config --global http.proxy http://127.0.0.1:7890'
+alias gon='git config --global http.proxy http://127.0.0.1:6152'
 alias goff='git config --global --unset http.proxy'
 
 # git quick rebase master
